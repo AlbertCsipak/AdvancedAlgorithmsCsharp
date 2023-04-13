@@ -1,6 +1,4 @@
-﻿using AdvancedAlgCsharp.InterFaces;
-
-namespace AdvancedAlgCsharp.Models
+﻿namespace AdvancedAlgCsharp.Models
 {
 	public class Gene
 	{
@@ -11,12 +9,13 @@ namespace AdvancedAlgCsharp.Models
 			Towns = new List<Town>();
 			Score = 0;
 		}
-		public Gene DeepCopy() { 
+		public Gene DeepCopy()
+		{
 			Gene gene = new Gene();
 			gene.Score = this.Score;
 			gene.Towns = new List<Town>(this.Towns);
 			return gene;
-				
+
 		}
 		public void Fitness()
 		{
@@ -37,13 +36,12 @@ namespace AdvancedAlgCsharp.Models
 				float chance = Utilities.RND.Value.NextSingle();
 				if (chance < mutationChance)
 				{
-					int random1 = Utilities.RND.Value.Next(0, Towns.Count - 1);
 					int random2 = Utilities.RND.Value.Next(0, Towns.Count - 1);
 
-					Town tmp1 = Towns[random1];
+					Town tmp1 = Towns[i];
 					Town tmp2 = Towns[random2];
 
-					Towns[random1] = tmp2;
+					Towns[i] = tmp2;
 					Towns[random2] = tmp1;
 				}
 			}

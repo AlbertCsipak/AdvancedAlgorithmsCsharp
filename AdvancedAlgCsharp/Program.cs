@@ -1,7 +1,5 @@
 ﻿using AdvancedAlgCsharp.Models;
-using System;
 using System.Diagnostics;
-using System.Drawing;
 
 namespace AdvancedAlgCsharp
 {
@@ -12,12 +10,12 @@ namespace AdvancedAlgCsharp
 			GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
 			geneticAlgorithm.BatchSize = 10000;
 
-			for (int i = 0; i < 20; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				Town town = new Town();
 				town.ID = i;
-				town.X = Utilities.RND.Value.Next(0, 10000);
-				town.Y = Utilities.RND.Value.Next(0, 10000);
+				town.X = Utilities.RND.Value.Next(0, 200);
+				town.Y = Utilities.RND.Value.Next(0, 200);
 				geneticAlgorithm.AllTheTowns.Add(town);
 			}
 			;
@@ -29,8 +27,8 @@ namespace AdvancedAlgCsharp
 				Console.Clear();
 
 				//stopwatch.Restart();
-                geneticAlgorithm.EvaluateFitnesses();
-                //Console.WriteLine(stopwatch.ElapsedMilliseconds);
+				geneticAlgorithm.EvaluateFitnesses();
+				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 				//stopwatch.Restart();
 				geneticAlgorithm.SortCollection();
@@ -43,7 +41,7 @@ namespace AdvancedAlgCsharp
 				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 				//stopwatch.Restart();
-				geneticAlgorithm.MutateSolutions(0.3f);
+				geneticAlgorithm.MutateSolutions(0.6f);
 				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 				//stopwatch.Restart();
