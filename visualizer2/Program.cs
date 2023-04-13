@@ -1,8 +1,8 @@
-using AdvancedAlgCsharp.Models;
+using AdvancedAlgCsharp.Models.Bases;
 
 namespace visualizer2
 {
-	public static class Program
+    public static class Program
 	{
 		/// <summary>
 		///  The main entry point for the application.

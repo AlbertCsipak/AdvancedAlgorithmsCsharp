@@ -1,14 +1,16 @@
-﻿using AdvancedAlgCsharp.Models;
+﻿using AdvancedAlgCsharp.Models.Bases;
+using AdvancedAlgCsharp.Models.TravellingSalesman;
 using System.Diagnostics;
 
 namespace AdvancedAlgCsharp
 {
-	internal class Program
+    internal class Program
 	{
+		public delegate void EvaluateDelegate();
 		static void Main(string[] args)
 		{
-			GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
-			geneticAlgorithm.BatchSize = 10000;
+			TravellingSalesman travellingSalesman = new TravellingSalesman();
+			travellingSalesman.BatchSize = 10000;
 
 			for (int i = 0; i < 10; i++)
 			{
@@ -16,37 +18,26 @@ namespace AdvancedAlgCsharp
 				town.ID = i;
 				town.X = Utilities.RND.Value.Next(0, 200);
 				town.Y = Utilities.RND.Value.Next(0, 200);
-				geneticAlgorithm.AllTheTowns.Add(town);
+				travellingSalesman.AllTheTowns.Add(town);
 			}
 			;
-			geneticAlgorithm.CreateSolutions();
+			travellingSalesman.CreateSolutions();
 
-			Stopwatch stopwatch = new Stopwatch();
 			while (true)
 			{
 				Console.Clear();
 
-				//stopwatch.Restart();
-				geneticAlgorithm.EvaluateFitnesses();
-				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+				travellingSalesman.EvaluateFitnesses();
 
-				//stopwatch.Restart();
-				geneticAlgorithm.SortCollection();
-				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+				travellingSalesman.SortCollection();
 
-				geneticAlgorithm.PrintCollection();
-				;
-				//stopwatch.Restart();
-				geneticAlgorithm.TakeBestSolutions();
-				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+				travellingSalesman.PrintCollection();
 
-				//stopwatch.Restart();
-				geneticAlgorithm.MutateSolutions(0.6f);
-				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+				travellingSalesman.TakeBestSolutions();
 
-				//stopwatch.Restart();
-				geneticAlgorithm.Crossover();
-				//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+				travellingSalesman.MutateSolutions(0.6f);
+
+				travellingSalesman.Crossover();
 
 				System.Threading.Thread.Sleep(1);
 			}
