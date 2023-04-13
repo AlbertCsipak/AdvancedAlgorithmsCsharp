@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedAlgCsharp", "AdvancedAlgCsharp\AdvancedAlgCsharp.csproj", "{694FB8F3-3A32-4233-9960-20C212A03943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "visualizer2", "visualizer2\visualizer2.csproj", "{54F72A64-085E-45A1-88C7-26D2A7C21BBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "visualizer", "visualizer2\visualizer.csproj", "{54F72A64-085E-45A1-88C7-26D2A7C21BBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

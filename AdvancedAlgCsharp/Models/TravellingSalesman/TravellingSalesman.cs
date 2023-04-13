@@ -14,7 +14,7 @@ namespace AdvancedAlgCsharp.Models.TravellingSalesman
 				SalesmanGene gene = new SalesmanGene();
 				gene.Towns = AllTheTowns.ConvertAll(i => i);
 				Utilities.Shuffle(gene.Towns);
-				Collection.Add(gene);		
+				Collection.Add(gene);
 			}
 
 		}
