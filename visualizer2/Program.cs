@@ -1,13 +1,14 @@
 using AdvancedAlgCsharp.Models.Bases;
+using AdvancedAlgCsharp.Models.TravellingSalesman;
 
 namespace visualizer2
 {
-    public static class Program
+	public static class Program
 	{
 		/// <summary>
 		///  The main entry point for the application.
 		/// </summary>
-		public static GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
+		public static TravellingSalesman geneticAlgorithm = new TravellingSalesman();
 		[STAThread]
 		static void Main()
 		{
@@ -32,24 +33,24 @@ namespace visualizer2
 			{
 				while (true)
 				{
-					Program.geneticAlgorithm.EvaluateFitnesses();
+					geneticAlgorithm.EvaluateFitnesses();
 
 					//stopwatch.Restart();
-					Program.geneticAlgorithm.SortCollection();
+					geneticAlgorithm.SortCollection();
 					//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
-					Program.geneticAlgorithm.PrintCollection();
+					geneticAlgorithm.PrintCollection();
 					;
 					//stopwatch.Restart();
-					Program.geneticAlgorithm.TakeBestSolutions();
+					geneticAlgorithm.TakeBestSolutions();
 					//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 					//stopwatch.Restart();
-					Program.geneticAlgorithm.MutateSolutions(0.4f); //0.6 a legjobb 
+					geneticAlgorithm.MutateSolutions(0.4f); //0.6 a legjobb 
 																	//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 					//stopwatch.Restart();
-					Program.geneticAlgorithm.Crossover();
+					geneticAlgorithm.Crossover();
 
 					Thread.Sleep(1);
 				}

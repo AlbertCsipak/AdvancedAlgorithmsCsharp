@@ -1,10 +1,9 @@
 ﻿using AdvancedAlgCsharp.Models.Bases;
 using AdvancedAlgCsharp.Models.TravellingSalesman;
-using System.Diagnostics;
 
 namespace AdvancedAlgCsharp
 {
-    internal class Program
+	internal class Program
 	{
 		public delegate void EvaluateDelegate();
 		static void Main(string[] args)

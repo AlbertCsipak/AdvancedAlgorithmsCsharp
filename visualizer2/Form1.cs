@@ -1,3 +1,5 @@
+using AdvancedAlgCsharp.Models.TravellingSalesman;
+
 namespace visualizer2
 {
 	public partial class Form1 : Form
@@ -26,17 +28,17 @@ namespace visualizer2
 				Graphics formGraphics;
 				formGraphics = this.CreateGraphics();
 
-				for (int i = 0; i < Program.geneticAlgorithm.BestGene.Towns.Count; i++)
+				for (int i = 0; i < (Program.geneticAlgorithm.BestGene as SalesmanGene)?.Towns.Count; i++)
 				{
 
-					int x = Program.geneticAlgorithm.BestGene.Towns[i].X;
-					int y = Program.geneticAlgorithm.BestGene.Towns[i].Y;
+					int x = (Program.geneticAlgorithm.BestGene as SalesmanGene).Towns[i].X;
+					int y = (Program.geneticAlgorithm.BestGene as SalesmanGene).Towns[i].Y;
 					formGraphics.FillEllipse(myBrush, new Rectangle(x - 5, y - 5, 10, 10));
 
-					if (i < Program.geneticAlgorithm.BestGene.Towns.Count - 1)
+					if (i < (Program.geneticAlgorithm.BestGene as SalesmanGene)?.Towns.Count - 1)
 					{
 
-						e.Graphics.DrawLine(pen2, x, y, Program.geneticAlgorithm.BestGene.Towns[i + 1].X, Program.geneticAlgorithm.BestGene.Towns[i + 1].Y);
+						e.Graphics.DrawLine(pen2, x, y, (Program.geneticAlgorithm.BestGene as SalesmanGene).Towns[i + 1].X, (Program.geneticAlgorithm.BestGene as SalesmanGene).Towns[i + 1].Y);
 					}
 				}
 				pen.Dispose();
