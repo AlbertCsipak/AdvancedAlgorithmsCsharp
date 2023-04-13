@@ -13,11 +13,8 @@ namespace AdvancedAlgCsharp.Models.TravellingSalesman
 			{
 				SalesmanGene gene = new SalesmanGene();
 				gene.Towns = AllTheTowns.ConvertAll(i => i);
-				;
 				Utilities.Shuffle(gene.Towns);
-				;
-				Collection.Add(gene);
-				;
+				Collection.Add(gene);		
 			}
 
 		}
@@ -41,9 +38,7 @@ namespace AdvancedAlgCsharp.Models.TravellingSalesman
 			{
 				SalesmanGene tmp = new SalesmanGene();
 
-				float rnd1 = Utilities.RND.Value.NextSingle();
-
-				if (rnd1 < 0.8)
+				if (Utilities.RND.Value.NextSingle() < 0.8)
 				{
 					for (int j = 0; j < AllTheTowns.Count; j++)
 					{
@@ -53,6 +48,7 @@ namespace AdvancedAlgCsharp.Models.TravellingSalesman
 						{
 							int rnd = Utilities.RND.Value.Next(0, SampleSize - 1);
 							Town town = (SampleCollection[rnd] as SalesmanGene).Towns[j];
+
 							if (!tmp.Towns.Contains(town))
 							{
 								tmp.Towns.Add(town);
@@ -69,9 +65,7 @@ namespace AdvancedAlgCsharp.Models.TravellingSalesman
 				if (tmp.Towns.Count != AllTheTowns.Count)
 				{
 					tmp.Towns = AllTheTowns.ConvertAll(i => i);
-					;
 					Utilities.Shuffle(tmp.Towns);
-					;
 				}
 
 				lock (Collection)

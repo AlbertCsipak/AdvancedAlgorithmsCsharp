@@ -16,7 +16,6 @@ namespace visualizer2
 			// see https://aka.ms/applicationconfiguration.
 			ApplicationConfiguration.Initialize();
 
-			geneticAlgorithm.BatchSize = 10000;
 
 			for (int i = 0; i < 15; i++)
 			{
@@ -26,7 +25,8 @@ namespace visualizer2
 				town.Y = Utilities.RND.Value.Next(100, 600);
 				geneticAlgorithm.AllTheTowns.Add(town);
 			}
-			;
+
+			geneticAlgorithm.BatchSize = 10000;
 			geneticAlgorithm.CreateSolutions();
 
 			Task task = new Task(t =>
@@ -35,21 +35,14 @@ namespace visualizer2
 				{
 					geneticAlgorithm.EvaluateFitnesses();
 
-					//stopwatch.Restart();
 					geneticAlgorithm.SortCollection();
-					//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 					geneticAlgorithm.PrintCollection();
-					;
-					//stopwatch.Restart();
+
 					geneticAlgorithm.TakeBestSolutions();
-					//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
-					//stopwatch.Restart();
 					geneticAlgorithm.MutateSolutions(0.4f); //0.6 a legjobb 
-																	//Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
-					//stopwatch.Restart();
 					geneticAlgorithm.Crossover();
 
 					Thread.Sleep(1);
