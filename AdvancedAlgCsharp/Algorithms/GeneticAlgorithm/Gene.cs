@@ -1,5 +1,4 @@
-﻿
-namespace AdvancedAlgCsharp.Models.Bases
+﻿namespace AdvancedAlgCsharp.Algrithms.Bases
 {
 	public abstract class Gene
 	{

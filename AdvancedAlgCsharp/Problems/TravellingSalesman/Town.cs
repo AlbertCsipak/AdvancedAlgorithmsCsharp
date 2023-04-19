@@ -1,4 +1,4 @@
-﻿namespace AdvancedAlgCsharp.Models.TravellingSalesman
+﻿namespace AdvancedAlgCsharp.Problems.TravellingSalesman
 {
 	public class Town
 	{

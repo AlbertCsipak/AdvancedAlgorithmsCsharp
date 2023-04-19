@@ -44,11 +44,10 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1482, 653);
+			ClientSize = new Size(1782, 653);
 			Controls.Add(label1);
 			Name = "Form1";
 			Text = "Form1";
-			Load += Form1_Load;
 			Paint += Form1_Paint;
 			ResumeLayout(false);
 			PerformLayout();

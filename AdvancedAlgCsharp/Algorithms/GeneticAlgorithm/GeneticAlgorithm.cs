@@ -1,6 +1,6 @@
-﻿using AdvancedAlgCsharp.Models.TravellingSalesman;
+﻿using AdvancedAlgCsharp.Problems.TravellingSalesman;
 
-namespace AdvancedAlgCsharp.Models.Bases
+namespace AdvancedAlgCsharp.Algrithms.Bases
 {
 	public abstract class GeneticAlgorithm
 	{
@@ -23,7 +23,7 @@ namespace AdvancedAlgCsharp.Models.Bases
 		}
 		public virtual void MutateSolutions(float percentage)
 		{
-			Parallel.ForEach(SampleCollection, t =>
+			Parallel.ForEach(Collection.Skip(SampleSize / 100), t =>
 			{
 				t.Mutate(percentage);
 			});
@@ -50,6 +50,7 @@ namespace AdvancedAlgCsharp.Models.Bases
 				SampleCollection.Add(Collection[i].DeepCopy());
 			}
 			Collection.Clear();
+
 			for (int i = 0; i < SampleSize / 100; i++)
 			{
 				Collection.Add(SampleCollection[i].DeepCopy());
