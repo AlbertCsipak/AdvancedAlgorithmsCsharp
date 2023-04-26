@@ -49,8 +49,8 @@ namespace AdvancedAlgCsharp.Algrithms.Bases
 			{
 				SampleCollection.Add(Collection[i].DeepCopy());
 			}
-			Collection.Clear();
 
+			Collection.Clear();
 			for (int i = 0; i < SampleSize / 100; i++)
 			{
 				Collection.Add(SampleCollection[i].DeepCopy());

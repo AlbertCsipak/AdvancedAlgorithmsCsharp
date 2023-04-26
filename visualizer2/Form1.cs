@@ -1,4 +1,5 @@
 ﻿using AdvancedAlgCsharp.Problems.TravellingSalesman;
+using System.Drawing;
 
 namespace visualizer2
 {
@@ -28,9 +29,35 @@ namespace visualizer2
 			{
 				DrawSmallestBoundaryPolygon(sender, e);
 			}
+			else if (Program.functionApproximation.IsActive)
+			{
+				DrawFunctionApproximation(sender, e);
+			}
+			else if (Program.workAssignment.IsActive)
+			{
+				DrawWorkAssignmentProblem(sender, e);
+			}
 			else
 			{
+				label1.Text = "error :)";
+			}
+		}
+		void DrawFunctionApproximation(object sender, PaintEventArgs e)
+		{
 
+			label1.Text = "GlobalOptimum: ";
+			label1.Text += "\nGeneration: " + Program.functionApproximation.Generation.ToString();
+
+			Pen pen = new Pen(Color.BlueViolet, 6);
+			Pen pen2 = new Pen(Color.Black, 2);
+			Pen pen3 = new Pen(Color.Red, 6);
+
+			//poly draw
+			for (int i = 0; i < Program.functionApproximation.Critters.Count; i++)
+			{
+				int x = Program.functionApproximation.Critters[i].X;
+				int y = Program.functionApproximation.Critters[i].Y;
+				e.Graphics.DrawEllipse(pen, new Rectangle(x - 3, y - 3, 6, 6));
 			}
 		}
 		void DrawSmallestBoundaryPolygon(object sender, PaintEventArgs e)
@@ -68,7 +95,6 @@ namespace visualizer2
 					e.Graphics.DrawLine(pen2, x, y, Program.smallestBoundaryPolygon.Points[0].X, Program.smallestBoundaryPolygon.Points[0].Y);
 				}
 			}
-
 		}
 		void DrawTravellingSalesman(object sender, PaintEventArgs e)
 		{
@@ -94,6 +120,27 @@ namespace visualizer2
 				}
 			}
 		}
+		void DrawWorkAssignmentProblem(object sender, PaintEventArgs e)
+		{
+			if (Program.workAssignment.Fronts != null)
+			{
+				Pen pen = new Pen(Color.BlueViolet, 5);
 
+				foreach (var p in Program.workAssignment.Fronts)
+				{
+					var tmpPts = PointCalculator(p.Properties[0], p.Properties[1]);
+
+					e.Graphics.DrawEllipse(pen, new Rectangle((int)tmpPts[0], (int)tmpPts[1],5, 5));
+				}
+			}
+		}
+		private float[] PointCalculator(float x, float y)
+		{
+			float[] coordinates = new float[2];
+			coordinates[0] = (float)((this.Width - 400) * (1 - x)) + 100;
+			coordinates[1] = (float)((this.Height - 300) * y) + 100;
+
+			return coordinates;
+		}
 	}
 }

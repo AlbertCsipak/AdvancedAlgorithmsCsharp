@@ -27,6 +27,7 @@ namespace AdvancedAlgCsharp.Problems.TravellingSalesman
 
 		public override void Mutate(float mutationChance)
 		{
+			//a
 			//for (int i = 0; i < Towns.Count; i++)
 			//{
 			//    float chance = Utilities.RND.Value.NextSingle();
@@ -42,6 +43,8 @@ namespace AdvancedAlgCsharp.Problems.TravellingSalesman
 			//        Towns[random2] = tmp1;
 			//    }
 			//}
+
+			//b
 			float chance = Utilities.threadSafeRND.Value.NextSingle();
 			if (chance < mutationChance)
 			{

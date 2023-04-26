@@ -3,7 +3,7 @@ using AdvancedAlgCsharp.Algorithms.HillClimbing;
 
 namespace AdvancedAlgCsharp.Problems.SmallestBoundaryPolygon
 {
-	public class SmallestBoundaryPolygon : HillClimbingAlgorithm
+    public class SmallestBoundaryPolygon : HillClimbingAlgorithm
 	{
 		public bool IsActive { get; set; }
 		public List<MyPoint> Polygon = new List<MyPoint>();
@@ -120,6 +120,12 @@ namespace AdvancedAlgCsharp.Problems.SmallestBoundaryPolygon
 				newList[idx].Y += changeValue;
 			}
 
+			if (!AreTherePointsWithSameCoordinates(newList))
+			{
+				;
+				return Points;
+			}
+
 
 			for (int pi = 0; pi < Polygon.Count; pi++)
 			{
@@ -135,6 +141,21 @@ namespace AdvancedAlgCsharp.Problems.SmallestBoundaryPolygon
 			}
 
 			return newList;
+		}
+		bool AreTherePointsWithSameCoordinates(List<MyPoint> newList) {
+			int counter = 0;
+			foreach (var outer in newList)
+			{
+				foreach (var inner in newList)
+				{
+					if (outer.X == inner.X && outer.Y==inner.Y)
+					{
+						;
+						counter++;
+					}
+				}
+			}
+			return counter==newList.Count;
 		}
 		//lp1 a bal pont lp2 a jobb pont p a amihez hozzáér a vonal
 		float DistanceFromLine(MyPoint lp1, MyPoint lp2, MyPoint p)
